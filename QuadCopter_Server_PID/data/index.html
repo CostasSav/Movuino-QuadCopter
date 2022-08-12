@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Movuino QuadCopter Web Server</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" href="data:,">
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+        <div>
+            <button class="tablinks" onclick="openTab(event, 'Flight')">Flight</button>
+            <button class="tablinks" onclick="openTab(event, 'Testing')">Testing</button>
+            <button class="tablinks" onclick="openTab(event, 'Data')">Data</button>
+            <button class="tablinks" onclick="openTab(event, 'About')" id="defaultOpen">About</button>
+        </div>
+
+        <div id="Flight" class="tabcontent">
+            <h1>Flight Controller</h1>
+            <div id="control">
+                <button id="up1" onmousedown="straightForward()" onmouseup="mouseUp()" ontouchstart="straightForward()" ontouchend="mouseUp()">
+                    <div class="triangle-up"></div><div class="rectangle-up"></div>
+                </button>
+                <button id="left1" onmousedown="straightLeft()" onmouseup="mouseUp()" ontouchstart="straightLeft()" ontouchend="mouseUp()">
+                    <div class="triangle-up"></div><div class="rectangle-up"></div>
+                </button>
+                <button id="down1" onmousedown="straightReverse()" onmouseup="mouseUp()" ontouchstart="straightReverse()" ontouchend="mouseUp()">
+                    <div class="triangle-up"></div><div class="rectangle-up"></div>
+                </button>
+                <button id="right1" onmousedown="straightRight()" onmouseup="mouseUp()" ontouchstart="straightRight()" ontouchend="mouseUp()">
+                    <div class="triangle-up"></div><div class="rectangle-up"></div>
+                </button>
+            </div>
+            <div id="control2">
+                <button id="up2" onmousedown="altitudeGain()" onmouseup="mouseUp()" ontouchstart="altitudeGain()" ontouchend="mouseUp()">
+                    <div class="triangle-up"></div><div class="triangle-up"></div>
+                </button>
+                <button id="left2" onmousedown="rotateLeft()" onmouseup="mouseUp()" ontouchstart="rotateLeft()" ontouchend="mouseUp()">
+                    <div class="arrow-curved"></div><div class="arrow-curvedtail"></div>
+                </button>
+                <button id="down2" onmousedown="altitudeLoss()" onmouseup="mouseUp()" ontouchstart="altitudeLoss()" ontouchend="mouseUp()">
+                    <div class="triangle-up"></div><div class="triangle-up"></div>
+                </button>
+                <button id="right2" onmousedown="rotateRight()" onmouseup="mouseUp()" ontouchstart="rotateRight()" ontouchend="mouseUp()">
+                    <div class="arrow-curved2"></div><div class="arrow-curvedtail2"></div>
+                </button>
+            </div>
+            <div id="control3">
+                <button id="offbutton">TURN ON</button>
+            </div>
+        </div>
+
+        <div id="Testing" class="tabcontent">
+            <h1>Testing</h1>
+            <div class="container" id="motor1slider">
+                <div class="motor" id="motor1">0</div>
+                <input type="range" min="0" max="100" value="0" id="slider1">
+            </div>
+            <div class="container" id="motor2slider">
+                <div class="motor" id="motor2">0</div>
+                <input type="range" min="0" max="100" value="0" id="slider2">
+            </div>
+            <div class="container" id="motor3slider">
+                <div class="motor" id="motor3">0</div>
+                <input type="range" min="0" max="100" value="0" id="slider3">
+            </div>
+            <div class="container" id="motor4slider">
+                <div class="motor" id="motor4">0</div>
+                <input type="range" min="0" max="100" value="0" id="slider4">
+            </div>
+            <div class="container" id="masterslider">
+                <div class="motor" id="master">0</div>
+                <input type="range" min="0" max="100" value="0" id="slider5">
+            </div>
+        </div>
+
+        <div id="Data" class="tabcontent">
+            <h1>Movuino MPU Data</h1>
+            <div>
+                <h2>Accelerometer</h2>
+                <u1>
+                    <td><li style="display: inline">X:  </li><div style="display: inline" id="mpu1">0</div></td><br><br>
+                    <td><li style="display: inline">Y:  </li><div style="display: inline" id="mpu2">0</div></td><br><br>
+                    <td><li style="display: inline">Z:  </li><div style="display: inline" id="mpu3">0</div></td><br><br>
+                </u1>
+
+            </div>
+            <div>
+                <h2>Gyroscope</h2>
+                <u1>
+                    <td><li style="display: inline">X:  </li><div style="display: inline" id="mpu4">0</div></td><br><br>
+                    <td><li style="display: inline">Y:  </li><div style="display: inline" id="mpu5">0</div></td><br><br>
+                    <td><li style="display: inline">Z:  </li><div style="display: inline" id="mpu6">0</div></td><br><br>
+                </u1>
+
+            </div>
+            <div>
+                <h2>Magnetometer</h2>
+                <u1>
+                    <td><li style="display: inline">X:  </li><div style="display: inline" id="mpu7">0</div></td><br><br>
+                    <td><li style="display: inline">Y:  </li><div style="display: inline" id="mpu8">0</div></td><br><br>
+                    <td><li style="display: inline">Z:  </li><div style="display: inline" id="mpu9">0</div></td><br><br>
+                </u1>
+
+            </div>
+        </div>
+        <div id="About" class="tabcontent">
+            <h1>The Movuino QuadCopter Project</h1>
+        </div>
+
+        <script type="text/javascript" src="app.js">
+        </script>
+        <script>
+            document.getElementById("defaultOpen").click();
+        </script>
+    </body>
+</html>
